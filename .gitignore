@@ -1,0 +1,10 @@
+*
+!.gitignore
+!.tmux.conf
+!.zshrc
+!.config/
+!.config/nvim/
+!.config/nvim/**
+!.config/kitty/
+!.config/kitty/kitty.conf
+!README.md
