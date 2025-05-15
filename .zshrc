@@ -140,3 +140,4 @@ export NVM_DIR="$HOME/.nvm"
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias vim=nvim
