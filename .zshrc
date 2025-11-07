@@ -118,12 +118,8 @@ export PATH="/opt/homebrew/opt/ssh-copy-id/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="/opt/homebrew/opt/php@8.2/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@8.2/sbin:$PATH"
 export PATH="/opt/homebrew/opt/mongodb-community/bin:$PATH"
 export PATH="/opt/homebrew/opt/mongodb-database-tools/bin:$PATH"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -134,10 +130,20 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# nvm - loaded before volta so volta takes precedence
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# volta - should be last to take precedence over nvm
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias vim=nvim
+
+export PATH=$PATH:~/.docker/bin
+export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
